@@ -1,5 +1,9 @@
 class Solution {
     public boolean isPowerOfTwo(int n) {
+        
+        
+    // 1. solution
+        
         // if(n==1){
         //     return true;
         // }
@@ -22,7 +26,7 @@ class Solution {
         //     mid=(left+right)/2;
         // }
         // return false;
-        
+    // 2. Solutiom
         if(n==0){
             return false;
         }
