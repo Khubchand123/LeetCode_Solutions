@@ -11,18 +11,8 @@ class Solution {
             else{
                 arr[i]=arr[i+1];
             }
-            if(arr[i]-prices[i]>max){
-                max=arr[i]-prices[i];
-            }
+            max=Math.max(arr[i]-prices[i],max);
        }
-        // int max=0;
-        // for(int i=0;i<n;i++){
-        //     if(arr[i]-prices[i]>max){
-        //         max=arr[i]-prices[i];
-        //     }
-        // }
-        
-        
         return max;
     }
 }
