@@ -7,7 +7,6 @@ class Solution {
             if(map.containsKey(k)){
                 long value=map.get(k)+(long)1;
                 map.put(k,value);
-                // sum+=(long)value;
             }
             else{
                 map.put(k,(long)1);
@@ -21,7 +20,5 @@ class Solution {
             sum+=(n*(n-1)/2);
         }
         return sum;
-        
-        
     }
 }
