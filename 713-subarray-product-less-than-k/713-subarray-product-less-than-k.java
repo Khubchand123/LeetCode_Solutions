@@ -8,16 +8,11 @@ class Solution {
         // int arr[] = new int[]
         while(ei<n){
             p*=nums[ei];
-            if(p<k){
-                ans+=ei-si+1;
+            while(p>=k && si<=ei){
+                p=p/nums[si];
+                si++;
             }
-            else{
-                while(p>=k && si<=ei){
-                    p=p/nums[si];
-                    si++;
-                }
-                ans+=ei-si+1;
-            }
+            ans+=ei-si+1;
             ei++;
         }
         return ans;
