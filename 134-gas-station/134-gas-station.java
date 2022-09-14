@@ -10,7 +10,6 @@ class Solution {
                 si=i+1;
                 cur=0;
             }
-            
         }
         if(total<0){
             return -1;
