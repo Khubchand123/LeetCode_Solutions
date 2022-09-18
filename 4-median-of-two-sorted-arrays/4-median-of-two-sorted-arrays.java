@@ -3,22 +3,6 @@ class Solution {
         int n1=nums1.length;
         int n2=nums2.length;
         int total=n1+n2;
-        // if(n1==0){
-        //     if(n2%2==0){
-        //         return (nums2[total/2-1]+nums2[total/2])/2.0;
-        //     }
-        //     else{
-        //         return (nums2[total/2])*1.0;
-        //     }
-        // }
-        // if(n2==0){
-        //     if(n1%2==0){
-        //         return (nums1[total/2-1]+nums1[total/2])/2.0;
-        //     }
-        //     else{
-        //         return (nums1[total/2])*1.0;
-        //     }
-        // }
         int x=0;
         int i=0;
         int j=0;
@@ -61,8 +45,5 @@ class Solution {
 		}else {
 			return (double)num1;
 		}
-	
-        
-        
-    }
+	}
 }
