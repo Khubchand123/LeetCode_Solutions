@@ -1,5 +1,7 @@
 class Solution {
     public int longestPalindrome(String s) {
+        
+        // logic:- count the occurence of char which occurs even time in string 
         Map<Character,Integer> map = new HashMap<>();
         int count=0;
         for(int i=0;i<s.length();i++){
@@ -14,9 +16,8 @@ class Solution {
                 map.put(s.charAt(i),1);
             }
         }
-        // if(count>0){
-        //     count+=1;
-        // }
+        
+        // after counting check is string cotain any single character which we can place in center of palindrome string
         if(s.length()-count>0){
             count+=1;
         }
