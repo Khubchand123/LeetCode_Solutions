@@ -6,6 +6,7 @@ class Solution {
                 max=weights[i];
             }
         }
+        int j=-1;
         int count=0;
         while(count!=days){
             for(int i=0;i<weights.length;i++){
