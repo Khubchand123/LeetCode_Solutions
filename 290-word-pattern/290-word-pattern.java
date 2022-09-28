@@ -1,7 +1,6 @@
 class Solution {
     public boolean wordPattern(String pattern, String s) {
         HashMap<Character,String> map = new HashMap<>();
-        // HashMap<String,Character> map2 = new HashMap<>();
         String[] arr = s.split(" ");
         if(pattern.length()!=arr.length){
             return false;
@@ -14,14 +13,11 @@ class Solution {
                     return false;
                 }
             }
+            else if(map.containsValue(arr[i])){
+                return false;
+            }
             else{
-                if(map.containsValue(arr[i])){
-                    return false;
-                }
-                else{
-                    map.put(c,arr[i]);
-                    // map2.put(arr[i],c);
-                }
+                map.put(c,arr[i]);
             }
         }
         return true;
