@@ -4,7 +4,8 @@ class Solution {
         int count=0;
         for(int i=0;i<key.length();i++){
             if(key.charAt(i)!=' ' && !map.containsKey(key.charAt(i))){
-                map.put(key.charAt(i),(char)(97+count));
+                // convert Ascii to character
+                map.put(key.charAt(i),(char)(97+count)); 
                 count++;
             }
         }
