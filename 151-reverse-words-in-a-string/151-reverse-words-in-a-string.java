@@ -1,5 +1,9 @@
 class Solution {
     public String reverseWords(String s) {
+        
+        
+           // Approach1:- Without using extra space
+        
         String s1=s.trim();
         String s2="";
         String s3="";
@@ -18,6 +22,7 @@ class Solution {
         String ans=s3+" "+s2;
         return ans.substring(0,ans.length()-1);
         
+                // Approach2:-  With Using Extra Space
         
         // String s1=s.trim();
         // String[] arr=s1.split(" ");
