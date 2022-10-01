@@ -13,10 +13,8 @@ class Solution {
                 c=(char)a;
                 n=n/26;
             }
-            
             s=c+s;
-            
-        }
+         }
         return s;
     }
 }
