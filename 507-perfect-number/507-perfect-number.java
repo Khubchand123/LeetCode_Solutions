@@ -13,7 +13,7 @@ class Solution {
 //         }
         
 //         return sum==num;
-        if (num <= 0) {
+        if (num %2!= 0) {
             return false;
         }
         int sum = 0;
