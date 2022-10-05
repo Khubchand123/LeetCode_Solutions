@@ -4,6 +4,7 @@ class Solution {
         int sum=0;
         for(int i=0;i<nums.length;i++){
             if(map.containsKey(nums[i])){
+                // delete first duplicate
                 if(map.get(nums[i])==1){
                     sum-=nums[i];
                     map.put(nums[i],0);
