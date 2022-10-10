@@ -10,25 +10,23 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        int count=0;
         ListNode fast=head;
         ListNode slow=head;
         ListNode prev=null;
         while(fast!=null && fast.next!=null){
             fast=fast.next.next;
+                // making first half listnode reverse
             ListNode cur=slow.next;
             slow.next=prev;
             prev=slow;
             slow=cur;
-            count+=2;
-            
         }
+              // checking whether the listnode size is even or odd
         if(fast!=null){
             slow=slow.next;
         }
-        // if()
-        // slow=slow.next;
         while(slow!=null){
+              // checking particular node value
             if(slow.val!=prev.val){
                 return false;
             }
