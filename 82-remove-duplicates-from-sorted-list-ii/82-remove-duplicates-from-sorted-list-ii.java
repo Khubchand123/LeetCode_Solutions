@@ -12,6 +12,7 @@ class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode temp=head;
         HashMap<Integer,Integer> map = new HashMap<>();
+        // counting the repeated nodes
         while(temp!=null){
             int k=temp.val;
             if(map.containsKey(k)){
@@ -24,19 +25,20 @@ class Solution {
         }
         temp=head;
         ListNode ans = new ListNode();
+        // Adding non-duplicate node in new ListNode
         while(temp!=null){
             int k=temp.val;
             if(map.get(k)>1){
-                // temp.next=temp.next.next;
             }
             else{
                 ans=new ListNode(temp.val,ans);
-                // temp=temp.next;
             }
             temp=temp.next;
         }
+        
         ListNode prev=null;
         temp=ans;
+        // reversing ans node
         while(temp!=null){
             ListNode cur=temp.next;
             temp.next=prev;
