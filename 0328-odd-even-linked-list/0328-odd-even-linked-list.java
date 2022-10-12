@@ -36,7 +36,7 @@ class Solution {
             
         }
         if(temp2!=null){
-        temp2.next=null;
+            temp2.next=null;
         }
         temp1.next=head2;
         return head;
