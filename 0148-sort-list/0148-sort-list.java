@@ -13,13 +13,17 @@ class Solution {
         if(head==null){
             return null;
         }
-        List<Integer> obj = new ArrayList<>();
         
+         // creting arraylist
+        List<Integer> obj = new ArrayList<>();
+          // add list value in arraylist
         while(head!=null){
             obj.add(head.val);
             head=head.next;
         }
+            // sort arraylist
         Collections.sort(obj);
+            // adding this value in head
         head=new ListNode(obj.get(0));
         ListNode temp=head;
         for(int i=1;i<obj.size();i++){
