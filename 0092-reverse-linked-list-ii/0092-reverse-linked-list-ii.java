@@ -13,8 +13,8 @@ class Solution {
         int p=left;
         int q=right;
         ListNode temp=head;
-        // ListNode initial;
         ListNode prev=null;
+                 // making rev node from left to right
         while(q--!=0){
             if(p<=1){
                 ListNode cur=temp.next;
@@ -26,26 +26,25 @@ class Solution {
                 temp=temp.next;
             }
             p--;
-            
         }
-        // return prev;
         ListNode cur=prev;
+             // iterate prev upto last elemnt
         while(cur.next!=null){
             cur=cur.next;
         }
+             // putting after right element in prev last node
         cur.next=temp;
         if(left==1){
             return prev;
         }
         
         else{
-        temp=head;
-        
-        while(left!=2){
-            temp=temp.next;
-            left--;
-        }
-        temp.next=prev;
+            temp=head;
+            while(left!=2){
+                temp=temp.next;
+                left--;
+            }
+            temp.next=prev;
         }
         
         return head;
