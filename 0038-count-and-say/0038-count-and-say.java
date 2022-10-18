@@ -3,20 +3,24 @@ class Solution {
         if(n==1){
             return "1";
         }
-        String s=countAndSay(n-1);
-        String ans="";
-        int count=1;
-        for(int i=1;i<s.length();i++){
-            if(s.substring(i-1,i).equals(s.substring(i,i+1))){
-                count++;
+        String sa=countAndSay(n-1);
+       String ans="";
+        int co=0;
+        for(int i=0;i<sa.length();i++){
+             int c=1;
+            for(int j=i+1;j<sa.length();j++){
+                if(sa.charAt(i)==sa.charAt(j)){
+                    c++;
+                    i++;
+                }
+                else{
+                   // co=j;
+                    break;
+                }
             }
-            else{
-                ans+=Integer.toString(count)+s.substring(i-1,i);
-                count=1;
-            }
+           ans= ans+c+sa.charAt(i);
+            // i=c;
         }
-        ans+=count+s.substring(s.length()-1,s.length());
         return ans;
     }
-    
 }
