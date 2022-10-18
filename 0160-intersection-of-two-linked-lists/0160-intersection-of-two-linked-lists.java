@@ -11,7 +11,7 @@
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-                // 1. Brute Force Algorithm
+                // 1. Brute Force Algorithm (time taking around 500ms)
 //         ListNode temp1=headA;
 //         ListNode temp2=headB;
 //         while(temp1!=null){
@@ -27,7 +27,7 @@ public class Solution {
         
 //         return null;
         
-        // 2. Best Approach
+        // 2. Best Approach (time taking around 10ms)
         
         ListNode temp=headA;
         int sizeA=0;
