@@ -3,27 +3,20 @@ class Solution {
         if(n==1){
             return "1";
         }
-        else if(n==2){
-            return "11";
-        }
         String s=countAndSay(n-1);
-        String s1="";
+        String ans="";
         int count=1;
-        for(int i=0;i<s.length()-1;i++){
-            if(s.charAt(i)==s.charAt(i+1)){
+        for(int i=1;i<s.length();i++){
+            if(s.substring(i-1,i).equals(s.substring(i,i+1))){
                 count++;
             }
             else{
-                s1+=Integer.toString(count)+s.substring(i,i+1);
+                ans+=Integer.toString(count)+s.substring(i-1,i);
                 count=1;
             }
         }
-        if(s.charAt(s.length()-1)==s.charAt(s.length()-2)){
-                s1+=Integer.toString(count)+s.substring(s.length()-1);
-        }
-        else{
-            s1+="1"+s.substring(s.length()-1,s.length());
-        }
-        return s1;
+        ans+=count+s.substring(s.length()-1,s.length());
+        return ans;
     }
+    
 }
