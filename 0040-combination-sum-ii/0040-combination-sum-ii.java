@@ -18,10 +18,10 @@ class Solution {
             if(i!=idx  && candidates[i]==candidates[i-1]){
                 continue;
             }else{
-            sum+=candidates[i];
+            // sum+=candidates[i];
             obj.add(candidates[i]);
-            Comb(candidates,ans,obj,sum,target,i+1);
-            sum-=candidates[i];
+            Comb(candidates,ans,obj,sum+candidates[i],target,i+1);
+            // sum-=candidates[i];
             obj.remove(obj.size()-1);
             }
         }
