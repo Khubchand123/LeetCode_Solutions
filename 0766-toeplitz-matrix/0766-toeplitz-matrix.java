@@ -18,7 +18,6 @@ class Solution {
             i++;
         }
         i=1;
-        p=0;
         while(i<m-1){
             int k=i;
             int j=0;
@@ -29,7 +28,6 @@ class Solution {
                 k++;
                 j++;
             }
-            p++;
             i++;
         }
         return true;
