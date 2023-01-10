@@ -19,6 +19,7 @@ class Solution {
             return false;
         }
         int k = Integer.parseInt(s1);
+                    // used to check leading zeros
         String s2 = Integer.toString(k);
         if(s1.length()!=s2.length()){
             return false;
