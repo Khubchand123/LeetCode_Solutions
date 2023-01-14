@@ -23,7 +23,7 @@ class Solution {
             }
         }
         String res="";
-        // System.out.println(Arrays.toString(c));
+        System.out.println(Arrays.toString(c));
         for(char ch:baseStr.toCharArray())
         {
             res+=c[ch-'a'];
