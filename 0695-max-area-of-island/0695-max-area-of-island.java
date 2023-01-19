@@ -14,15 +14,15 @@ class Solution {
         return ans;
     }
     static int count;
-    public static void helper(int[][] image,int sr,int sc){
-        if(sr<0 || sc<0 || sr>=image.length || sc>=image[0].length || image[sr][sc]==0){
+    public static void helper(int[][] grid,int sr,int sc){
+        if(sr<0 || sc<0 || sr>=grid.length || sc>=grid[0].length || grid[sr][sc]==0){
             return;
         }
         count++;
-        image[sr][sc] = 0;
-        helper(image,sr+1,sc);
-        helper(image,sr-1,sc);
-        helper(image,sr,sc+1);
-        helper(image,sr,sc-1);
+        grid[sr][sc] = 0;
+        helper(grid,sr+1,sc);
+        helper(grid,sr-1,sc);
+        helper(grid,sr,sc+1);
+        helper(grid,sr,sc-1);
     }
 }
