@@ -13,9 +13,7 @@ class Solution {
         }
         int ans=0;
         for(int i=0;i<freq.length;i++){
-            if(freq[i]>=2){
-                ans=ans+((freq[i]*(freq[i]-1))/2);
-            }
+            ans=ans+((freq[i]*(freq[i]-1))/2); 
         }
         return ans;
     }
