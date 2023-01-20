@@ -73,7 +73,7 @@ class Solution{
        int j=0;
        int k=0;
        for(int i:arr){
-           if(i>ans){
+           if(i>=ans){
                ans=i;
                j=k;
            }
