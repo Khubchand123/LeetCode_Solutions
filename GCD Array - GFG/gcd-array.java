@@ -75,7 +75,7 @@ class Solution {
                 if(i!=sum/i)divisors.add(sum/i);
             }
         }
-        Collections.sort(divisors,Collections.reverseOrder());
+        Collections.sort(divisors);
         for(int i=1;i<N;i++){
             arr[i]+=arr[i-1];
         }
@@ -89,11 +89,10 @@ class Solution {
             }
             if(cnt>=K){
                 ans=i;
-                break;
+                // break;
             }
         }
         return ans;
     }
 }
-        
         
