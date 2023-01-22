@@ -35,9 +35,6 @@ class Solution {
             }
         }
         return obj;
-        // obj.add(root.val);
-        // preorderTraversal(root.left);
-        // preorderTraversal(root.right);
-        // return obj;
+        
     }
 }
