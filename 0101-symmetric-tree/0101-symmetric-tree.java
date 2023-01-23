@@ -14,18 +14,16 @@
  * }
  */
 class Solution {
-    public boolean isSymmetricRec(TreeNode left, TreeNode right){
-        
-        if(left == null || right == null){
-            return left == right;
+    public static boolean helper(TreeNode left,TreeNode right){
+        if(left==null || right==null){
+            return left==right;
         }
-        if(left.val != right.val) return false;
-        
-        return isSymmetricRec(left.left,right.right) && isSymmetricRec(left.right,right.left);
-        
+        if(left.val!=right.val){
+            return false;
+        }
+        return helper(left.left,right.right) && helper(left.right,right.left);
     }
-    
     public boolean isSymmetric(TreeNode root) {
-        return root == null || isSymmetricRec(root.left,root.right);
+        return helper(root.left,root.right);
     }
 }
