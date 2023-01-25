@@ -18,7 +18,7 @@ class Solution {
         if(root==null){
             return null;
         }
-        if(root.val==val){
+        if(root.val == val){
             return root;
         }
         if(root.val>val){
