@@ -2,19 +2,19 @@ class Solution {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> obj = new ArrayList<>();
-        helper(ans,obj,nums,0);
+        helper(nums,ans,obj,0);
         return ans;
     }
-    void helper(List<List<Integer>> ans,List<Integer> obj,int[] nums,int idx){
+    void helper(int[] nums,List<List<Integer>> ans,List<Integer> obj,int idx){
         if(obj.size()==nums.length){
             ans.add(new ArrayList<>(obj));
             return;
         }
-        int size = obj.size();
-        for(int i=0;i<=obj.size();i++){
-            List<Integer> temp = new ArrayList<>(obj);
-            temp.add(i,nums[idx]);
-            helper(ans,temp,nums,idx+1);
+        int count = obj.size();
+        for(int i=0;i<=count;i++){
+            obj.add(i,nums[idx]);
+            helper(nums,ans,obj,idx+1);
+            obj.remove(i);
         }
     }
 }
