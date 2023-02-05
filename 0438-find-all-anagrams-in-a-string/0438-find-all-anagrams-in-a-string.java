@@ -9,6 +9,9 @@ class Solution {
         }
         for(int i=0;i<n-k+1;i++){
             String s1 = s.substring(i,i+k);
+            if(arr1[(int)s1.charAt(0)-97]==0){
+                continue;
+            }
             int[] arr2 = new int[26];
             for(int j=0;j<k;j++){
                 arr2[(int)s1.charAt(j)-97]++;
