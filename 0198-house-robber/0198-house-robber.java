@@ -51,13 +51,27 @@ class Solution {
         
                 // 3. Iterative Approach
         
-        int[] dp = new int[n];
-        dp[0] = nums[0];
+        // int[] dp = new int[n];
+        // dp[0] = nums[0];
+        // for(int i=1;i<n;i++){
+        //     int incl = (i-2<0?0:dp[i-2]) + nums[i];
+        //     int excl = dp[i-1] + 0;
+        //     dp[i] = Math.max(incl,excl);
+        // }
+        // return dp[n-1];
+        
+                // 4. Two Varible Approach
+        
+        int prev1 = nums[0];
+        int prev2 = 0;
+        
         for(int i=1;i<n;i++){
-            int incl = (i-2<0?0:dp[i-2]) + nums[i];
-            int excl = dp[i-1] + 0;
-            dp[i] = Math.max(incl,excl);
+            int incl = prev2 + nums[i];
+            int excl = prev1 + 0;
+            int ans = Math.max(incl,excl);
+            prev2 = prev1;
+            prev1 = ans;
         }
-        return dp[n-1];
+        return prev1;
     }
 }
