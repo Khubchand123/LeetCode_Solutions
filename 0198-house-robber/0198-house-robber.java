@@ -29,18 +29,34 @@ class Solution {
     
     public int rob(int[] nums) {
         int n = nums.length;
-        
+        if(n==1){
+            return nums[0];
+        }
+        if(n==2){
+            return Math.max(nums[0],nums[1]);
+        }
                 // 1. Recursive Approach Brute force
         
         // return helper(nums,n-1);
         
                   // 2. Recursive Approach Best
         
-        int dp[] = new int[n];
-        Arrays.fill(dp,-1);
-        dp[0]=helper(nums,dp,n-1);
-        if(dp[n-1]==-1){
-            return 0;
+        // int dp[] = new int[n];
+        // Arrays.fill(dp,-1);
+        // dp[0]=helper(nums,dp,n-1);
+        // if(dp[n-1]==-1){
+        //     return 0;
+        // }
+        // return dp[n-1];
+        
+                // 3. Iterative Approach
+        
+        int[] dp = new int[n];
+        dp[0] = nums[0];
+        for(int i=1;i<n;i++){
+            int incl = (i-2<0?0:dp[i-2]) + nums[i];
+            int excl = dp[i-1] + 0;
+            dp[i] = Math.max(incl,excl);
         }
         return dp[n-1];
     }
