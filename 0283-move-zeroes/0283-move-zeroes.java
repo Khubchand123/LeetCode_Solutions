@@ -3,10 +3,7 @@ class Solution {
         int i=0;
         int j=0;
         for(int k=0;k<nums.length;k++){
-            if(nums[k]==0){
-                
-            }
-            else{
+            if(nums[k]!=0){
                 if(i!=k){
                     nums[i] = nums[k];
                     nums[k]=0;
@@ -20,5 +17,5 @@ class Solution {
                 }
             }
         }
-}
     }
+}
