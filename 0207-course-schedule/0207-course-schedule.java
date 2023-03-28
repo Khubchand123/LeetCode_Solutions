@@ -8,30 +8,39 @@ class Solution {
         for(int i[]:prerequisites){
             map.get(i[1]).add(i[0]);
         }
-        int vis[] = new int[numCourses];
-        for(int i=0;i<numCourses;i++){
-            // if(!vis[i]){
-                if(detectCycle(map,vis,i)){
-                    return false;
-                }
-            // }
-        }
-        return true;
-    }
-    boolean detectCycle(Map<Integer,Set<Integer>> map,int vis[],int i){
-        if(vis[i]==2){
-            return true;
-        }
-        vis[i] = 2;
-        for(int nbrs:map.get(i)){
-            if(vis[nbrs]!=1){
-                if(detectCycle(map,vis,nbrs)){
-                    return true;
-                }
-            }
-        }
-        vis[i]=1;
-        return false;
         
+        return TopologicalSort(map);
+    }
+    public boolean TopologicalSort(Map<Integer, Set<Integer>> map) {
+			int[] in = indegree(map);
+			Queue<Integer> q = new LinkedList<>();
+			for (int i = 0; i < in.length; i++) {
+				if (in[i] == 0) {
+					q.add(i);
+				}
+			}
+			int count = 0;
+			while (!q.isEmpty()) {
+				int rv = q.remove();
+				count++;
+				for (int nbrs : map.get(rv)) {
+					in[nbrs]--;
+					if (in[nbrs] == 0) {
+						q.add(nbrs);
+					}
+				}
+
+			}
+			return count == map.size();
+
+		}
+    int[] indegree(Map<Integer,Set<Integer>> map){
+        int[] in = new int[map.size() ];
+			for (int key : map.keySet()) {
+				for (int nbrs : map.get(key)) {
+					in[nbrs]++;
+				}
+			}
+			return in;
     }
 }
