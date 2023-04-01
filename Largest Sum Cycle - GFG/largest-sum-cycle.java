@@ -60,39 +60,51 @@ class GFG{
 
 //User function Template for Java
 
-class Solution {
-	long largestcycle = -1;
-
-	void DFS(int node, int[] Edge, boolean visited[], boolean pathvisited[]) {
-		visited[node] = true;
-		pathvisited[node] = true;
-
-		if (Edge[node] != -1) {
-			int adj = Edge[node];
-			if (!visited[adj]) {
-				DFS(adj, Edge, visited, pathvisited);
-			} else if (pathvisited[adj]) {
-				int curr = adj;
-				long sum = 1-1;
-				do {
-					sum += curr;
-					curr = Edge[curr];
-				} while (curr != adj);
-				largestcycle = Math.max(largestcycle, sum);
+class Solution{
+    public long largesSumCycle(int N, int Edge[]){
+        Queue<Integer> queue = new LinkedList<>();
+        int[] in = new int[N];
+        for(int i=0;i<N;i++){
+            if(Edge[i]==-1){
+                continue;
+            }
+            in[Edge[i]]++;
+        }
+        for(int i=0;i<N;i++){
+            if(in[i]==0){
+                queue.add(i);
+            }
+        }
+        boolean visited[] = new boolean[N];
+        while(!queue.isEmpty()) {
+				int rv = queue.poll();
+				visited[rv]=true;
+				int nbrs = Edge[rv];
+				if(nbrs!=-1) {
+					in[nbrs]--;
+					if(in[nbrs]==0) {
+						queue.add(nbrs);
+					}
+				}
+					
 			}
-		}
-
-		pathvisited[node] = false;
-	}
-
-	long largesSumCycle(int N, int[] Edge) {
-		boolean[] visited = new boolean[N];
-		boolean[] pathvisited = new boolean[N];
-		for (int i = 0; i < N; i++) {
-			if (!visited[i]) {
-				DFS(i, Edge, visited, pathvisited);
+			//count wala part
+			int ans=-1;
+			for (int i = 0; i < visited.length; i++) {
+				if(!visited[i]) {
+					int count=i;
+					int nbrs = Edge[i];
+					visited[i]=true;
+					while(nbrs!=i) {
+						visited[nbrs]=true;
+						count+=nbrs;
+					 nbrs = Edge[nbrs];
+					}
+					ans = Math.max(ans, count);
+				}
 			}
-		}
-		return largestcycle;
-	}
+			return ans;
+        
+    }
+    
 }
