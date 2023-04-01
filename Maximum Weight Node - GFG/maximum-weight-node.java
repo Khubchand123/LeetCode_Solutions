@@ -63,22 +63,21 @@ class GFG{
 
 class Solution{
     public int maxWeightCell(int N, int Edge[]){
-       int arr[] = new int[N];
+       int in[] = new int[N];
+       int max = -1;
+       int idx=0;
        for(int i=0;i<N;i++){
-           if(Edge[i]!=-1){
-               arr[Edge[i]]+=i;
+           if(Edge[i]==-1){
+               continue;
+           }
+           in[Edge[i]]+=i;
+       }
+       for(int i=0;i<N;i++){
+           if(max<=in[i]){
+               idx=i;
+               max=in[i];
            }
        }
-       int ans=0;
-       int j=0;
-       int k=0;
-       for(int i:arr){
-           if(i>=ans){
-               ans=i;
-               j=k;
-           }
-           k++;
-       }
-       return j;
+       return idx;
     }
 }
